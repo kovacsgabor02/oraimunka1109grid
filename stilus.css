@@ -1,0 +1,107 @@
+/*Reszponzív weboldal*/
+* {
+margin:0;
+padding:0;
+color: aliceblue;
+/* Minden html elem külső és belső margóját 0-ra raktuk*/
+box-sizing:border-box; /*elem szélességébe width értékbe beletartozik a paddig és a border is.*/
+}
+body {
+    width:90%;
+    max-width:900px;
+    margin:auto;
+    background-color:rgb(39, 36, 36);
+}
+main {
+    background-color: rgb(48, 23, 23);
+    /*tároló szülőelem*/
+    display:grid;
+    grid-template-columns:100px 3fr 1fr ;
+    grid-template-areas:
+        "h h h"
+        "n n n"
+        "b a j"
+        "f f f";
+}
+/*minden gyerekelemet elnevezek! fontos hogy egy se maradjon ki*/
+header {
+    grid-area: h;
+}
+article {
+    grid-area: a;
+}
+nav {
+    grid-area: n;
+}
+footer {
+    grid-area: f;
+}
+aside#bal {
+    grid-area: b;
+}
+aside#jobb {
+    grid-area: j;
+}
+
+header, nav, article, footer, aside {
+border:1px solid black;
+padding: 10px;
+}
+/* menü kialakítása*/
+nav ul {
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    list-style-type: none;
+    text-align: center;
+    gap: 10px;
+}
+nav a {
+    text-decoration: none;
+}
+nav li {
+    background-color: rgb(180, 127, 127);
+    padding: 5px;
+}
+
+
+/*tablet*/
+@media only screen and (max-width: 800px) {/* töréspont */ 
+    main, body {
+        width:100%
+    }
+main {
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+     "h"
+     "n"
+     "a"
+     "b"
+     "j"
+     "f";
+
+}
+nav ul {
+    display:grid;
+    grid-template-columns: 1fr;
+    list-style-type: none;
+    text-align: center;
+}
+}
+
+/* MOBIL nézet - reszponzivitás kialakítása*/
+@media only screen and (max-width: 450px) {/* töréspont */ 
+    main, body {
+        width: 100%;
+    }
+        main {
+            font-size: 12px+1vw;
+            grid-template-columns:1fr 1fr;
+            grid-template-areas: 
+             "h h"
+             "n n"
+             "a b"
+             "a b"
+             "j j"
+             "f f";
+}
+}
